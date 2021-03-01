@@ -1,0 +1,114 @@
+<div class="container col-sm-8 center">
+  <div >
+    
+    <div class="card  " >
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+                <div class="form-group row">
+                    <label for="eid" class="col-sm-6 col-form-label">Employee Id:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="eid"
+                    
+                      
+                      required
+                      [(ngModel)]="model.eid" name="eid"
+                      #eid="ngModel"
+                     >
+                      <div [hidden]="eid.valid || eid.pristine"
+                        class="alert alert-danger">
+                      Employee ID Required
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="name" class="col-sm-6 col-form-label">Name:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="name"  
+                      required
+                      [(ngModel)]="model.name" name="name"
+                      #name="ngModel"
+                    >
+                    <div [hidden]="name.valid || name.pristine"
+                      class="alert alert-danger">
+                    Name Required
+                  </div>
+                    </div>
+                      
+                </div>
+                <div class="form-group row">
+                    <label for="team" class="col-sm-6 col-form-label">Team:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="team"  
+                      required
+                      [(ngModel)]="model.team" name="team"
+                      #team="ngModel"
+                      >
+                      <div [hidden]="team.valid || team.pristine"
+                        class="alert alert-danger">
+                      Team name required
+                      </div>
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <label for="designation" class="col-sm-6 col-form-label">Designation:</label>
+                    <div class="col-sm-6">
+                      <select class="form-control" id="designation"
+                            required
+                            [(ngModel)]="model.designation" name="designation"
+                            #designation="ngModel">
+                      <option *ngFor="let d of designations" [value]="d">{{d}}</option>
+                    </select>
+                    <div [hidden]="designation.valid || designation.pristine" class="alert alert-danger">
+                      Designation is required
+                    </div>
+                    </div>
+                    
+                </div>
+                <fieldset class="form-group">
+                  <div class="row">
+                    <legend class="col-form-label col-sm-6 pt-0">Gender:</legend>
+                    <div class="col-sm-6">
+                      <div class="form-check-inline col-sm-2">
+                        <input class="form-check-input" type="radio" value="Male" name="gender"
+                        required
+                        [(ngModel)]="model.gender">
+                        <label class="form-check-label" for="gridRadios1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" value="Female" name="gender"
+                        [(ngModel)]="model.gender">
+                        <label class="form-check-label" for="gridRadios2">
+                          Female
+                        </label>
+                      </div>
+          
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="form-group row">
+                  <label for="dateOfJoining" class="col-sm-6 col-form-label" >Joining Date :</label>
+                  <div class="col-sm-6">
+                    <input  type="text" id="dateOfJoining" name="dateOfJoining"
+                    required
+                    [(ngModel)]="model.dateOfJoining"
+                    bsDatepicker
+                    class="form-control"                    
+                  />
+                  </div>
+                  
+                </div>
+         
+                <button type="submit" class="btn btn-primary float-right" [disabled]="!employeeForm.form.valid"  >Add</button>
+              </form>
+        </div>
+      </div>
+</div>
+
+</div>
