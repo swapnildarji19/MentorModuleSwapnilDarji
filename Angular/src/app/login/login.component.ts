@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { User } from '../user';
+import { User } from '../models/user';
 import { NavigationExtras,Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-
+import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -11,59 +11,33 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  {
-  
-  //message: string;
 
-  constructor(public authService: AuthService, public router: Router) {
-    //this.setMessage();
-  }
+  constructor(
+    public authService: AuthService,
+     public router: Router,
+     private http: HttpClient){}
 
-  // setMessage() {
-  //   this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-  // }
-
-  model = new User('','');  
+  model = new User('',''); 
 
   submitted = false;
 
   onSubmit() {
-    if (this.model.uname == 'swapnil' && this.model.upass =='qwerty')
-    {
-    this.login()
-    //this.router.navigate(["/employeedirectory"])
-    // this.authServiceService.onLogin()
+
+    const credentials ={
+      'username' : this.model.uname,
+      'password' : this.model.upass
     }
-    else{
+
+    this.http.post("https://localhost:44355/api/auth/login",credentials)
+    .subscribe(response => {
+      localStorage.setItem("isLoggedIn",'true');
+      this.router.navigate(['/employeedirectory']);
+    }, err => {
       this.submitted = true;
-
-    }
-  }
-
-  login() {
-    //this.message = 'Trying to log in ...';
-
-    this.authService.login().subscribe(() => {
-      //this.setMessage();
-      if (this.authService.isLoggedIn) {
-        // Usually you would use the redirect URL from the auth service.
-        // However to keep the example simple, we will always redirect to `/admin`.
-        const redirectUrl = '/employeedirectory';
-
-        // Set our navigation extras object
-        // that passes on our global query params and fragment
-        const navigationExtras: NavigationExtras = {
-          queryParamsHandling: 'preserve',
-          preserveFragment: true
-        };
-
-        // Redirect the user
-        this.router.navigate([redirectUrl], navigationExtras);
-      }
-    });
+    })
   }
 
   logout() {
     this.authService.logout();
-    //this.setMessage();
   }
 }

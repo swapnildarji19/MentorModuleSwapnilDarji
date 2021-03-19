@@ -6,7 +6,7 @@ export class Employee {
       public team: string,
       public designation: string,
       public gender: string,
-      public dateOfJoining: string,
+      public dateOfJoining: Date,
     ) {  }
   
   }

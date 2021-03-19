@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'employeedirectory', component: EmployeedirectoryComponent , canActivate :[AuthGuard] },
   { path: 'addemployee', component: AddemployeeComponent, canActivate :[AuthGuard]},
-  { path: '',   redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '',   redirectTo: '/employeedirectory', pathMatch: 'full' }, // redirect to `first-component`
   // Wildcard route for a 404 page
 ];
 

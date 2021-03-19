@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule,Router } from '@angular/router';
-import { Employee } from '../employee';
-import { EmployeeService} from '../employee.service';
-import { AuthService } from '../auth.service';
+import { Employee } from '../models/employee';
+import { EmployeeService} from '../services/employee.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-employeedirectory',
@@ -27,7 +27,6 @@ export class EmployeedirectoryComponent implements OnInit {
   }
   logout() {
     this.authService.logout();
-    //this.setMessage();
   }
 
 }
