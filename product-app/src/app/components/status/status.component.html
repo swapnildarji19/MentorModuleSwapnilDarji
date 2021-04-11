@@ -1,0 +1,26 @@
+<div class="container center">
+    <div [hidden]="isAvailable">
+        <div [hidden]="isAvailable" >
+            <h1>Order Incomplete</h1>
+            <p>Order could not be completed. Limited products available</p>
+            <p>Please return to cart and try again</p>
+            <button type='button' (click)="goToViewCart()" class="btn btn-primary">View cart</button>
+        </div>
+        
+    </div>
+    <div [hidden]="!isAvailable">
+        <div [hidden]="!isPaymentError" >
+            <h1>Order Incomplete</h1>
+            <p>Order could not be completed. Payment Failed.</p>
+            <p>Please return to cart and try again</p>
+            <button type='button' (click)="goToViewCart()" class="btn btn-primary">View cart</button>
+        </div>
+        
+        <div [hidden]="isPaymentError">
+            <h1>Thank You</h1>
+            <p>Payment Successfull</p>
+            <button type='button' (click)="goToProducts()" class="btn btn-primary">Continue Shopping</button>
+        </div>
+    </div>
+</div>
+

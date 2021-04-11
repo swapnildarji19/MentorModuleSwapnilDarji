@@ -1,0 +1,31 @@
+<nav class="navbar  justify-content-between">
+    <h1>Products</h1>
+    
+    <form class="form-inline">
+      
+      
+      <button type="button" (click)="viewCart()" class="btn btn-primary">View Cart {{total_products}}</button>
+    </form>
+</nav>
+
+<div class="container">
+    <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let product of products" >
+            <td> {{ product.name }} </td>
+            <td> {{ product.availability }} </td>
+            <td> {{ product.description }} </td>
+            <td> <button type="button" class="btn btn-outline-primary" (click)="addToCart(product.id)">Add</button> </td>  
+          </tr>
+        </tbody>
+      </table>
+</div>
+

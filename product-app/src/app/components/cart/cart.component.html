@@ -1,0 +1,20 @@
+<nav class="navbar  justify-content-between">
+    <h1>Cart</h1>
+    
+    <form class="form-inline" [formGroup]="form">
+      <button type="submit" (click)="buy(form?.value)"  class="btn btn-primary">Buy now</button>
+    </form>
+</nav>
+
+<div class="container center">
+    <form [formGroup]="form" >
+
+        <div class="form-group row" *ngFor = "let product of addedProducts">
+          <label for="staticEmail" class="col-sm-2 col-form-label">{{ product.name }}</label>
+          <div class="col-sm-10">
+            <input [formControlName]="product.id" type="number" id="product.id" value="1" name="product.id" min='1' max='{{product.availability}}' step="1">
+          </div>
+        </div>
+    </form>
+</div>
+
