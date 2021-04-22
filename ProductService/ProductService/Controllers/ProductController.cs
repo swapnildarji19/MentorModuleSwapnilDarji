@@ -14,7 +14,7 @@ namespace ProductService.Controllers
     {
         // GET: api/<ProductController>
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public List<Product> Get()
         {
             Product product1 = new Product()
             {
@@ -53,6 +53,15 @@ namespace ProductService.Controllers
             products.Add(product2);
             products.Add(product3);
             products.Add(product4);
+
+            Console.WriteLine(products);
+            foreach (Product aPart in products)
+            {
+                Console.WriteLine(aPart.Id);
+                Console.WriteLine(aPart.Name);
+                Console.WriteLine(aPart.Availability);
+                Console.WriteLine(aPart.Description);
+            }
 
             return products;
         }
