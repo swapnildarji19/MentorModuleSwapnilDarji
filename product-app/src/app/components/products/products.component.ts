@@ -44,9 +44,6 @@ export class ProductsComponent implements OnInit {
    );
   }
 
-  viewCart(){
-    this.router.navigate(["/cart"])
-  }
 
   addToCart(id : number) {
   

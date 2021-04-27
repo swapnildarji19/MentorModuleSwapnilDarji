@@ -27,3 +27,4 @@ C:\Users\swapn\source\repos\ProductService\PaymentService\obj\Debug\net5.0\Payme
 C:\Users\swapn\source\repos\ProductService\PaymentService\obj\Debug\net5.0\ref\PaymentService.dll
 C:\Users\swapn\source\repos\ProductService\PaymentService\obj\Debug\net5.0\PaymentService.pdb
 C:\Users\swapn\source\repos\ProductService\PaymentService\obj\Debug\net5.0\PaymentService.genruntimeconfig.cache
+C:\Users\swapn\source\repos\ProductService\PaymentService\bin\Debug\net5.0\Newtonsoft.Json.dll

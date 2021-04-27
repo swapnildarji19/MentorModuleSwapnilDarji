@@ -7,8 +7,8 @@ namespace PaymentService
 {
     public class UserProduct
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public int Quantity { get; set; }
+        public int quantity { get; set; }
     }
 }

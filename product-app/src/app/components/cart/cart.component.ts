@@ -33,9 +33,9 @@ export class CartComponent implements OnInit {
 
   }
 
-  buy (finalList:any[]) {
+  buy (cartList:any[]) {
   
-    this.productservice.updateFinalList(finalList)
+    this.productservice.updateFinalList(cartList)
     this.router.navigate(["/cart/status"])
   }
 
